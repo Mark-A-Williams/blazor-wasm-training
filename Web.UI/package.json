@@ -1,0 +1,11 @@
+{
+    "name": "blazor-wasm-training",
+    "version": "1.0.0",
+    "scripts": {
+        "node-sass": "node-sass"
+    },
+    "dependencies": {
+        "clean-css-cli": "^4.3.0",
+        "node-sass": "^5.0.0"
+    }
+}
