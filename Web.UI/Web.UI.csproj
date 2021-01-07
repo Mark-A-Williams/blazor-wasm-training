@@ -10,28 +10,4 @@
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ScssFiles Include="**/*/*.scss" Exclude="node_modules/**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <!--<Compile Update="*.css" Watch="false" />-->
-    <Watch Include="**\*.scss" Exclude="**\*.css;**\*.razor" />
-    <Watch Remove="**\*.css" />
-  </ItemGroup>
-
-  <Target Name="NodeCheck" BeforeTargets="CompileSass">
-    <Exec Command="node --version" ContinueOnError="true">
-      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
-    </Exec>
-    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is requred to build this project." />
-    <Message Importance="high" Text="Restoring deps via 'npm'. This may take a few mins." />
-    <Exec Command="npm install" />
-  </Target>
-
-  <Target Name="CompileSass" BeforeTargets="Compile">
-    <Message Text="All the SCSS Files: @(ScssFiles->'%(filename).css')" Importance="high" />
-    <Exec Command="npm run node-sass -- %(ScssFiles.Identity) %(relativedir)%(filename).css" />
-  </Target>
-
 </Project>
