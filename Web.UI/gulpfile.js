@@ -8,14 +8,14 @@ const
     rename = require("gulp-rename"),
     sass = require("gulp-sass");
 
-const scssPaths = ["*/**/*.scss", "Areas/**/*.scss"];
+const scssPaths = ["*/**/*.scss"];
 
 exports.default = gulp.parallel(sassCompile);
 exports.watch = gulp.parallel(sassWatch);
 
 function sassCompile(done) {
-    var ext = ".css";
-    var dest = function (file) {
+    const ext = ".css";
+    const dest = function (file) {
         return file.base;
     };
 
